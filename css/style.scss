@@ -1,0 +1,64 @@
+
+$colors: ( //map
+    primary: rgba(236, 236, 236, 0.897), //key: value
+    secondary: #000 //key: value
+);
+
+$fonts: (
+    large: 36px,
+    medium: 24px,
+    small: 12px
+);
+
+@function color($colorName){
+    @return map-get($map: $colors, $key: $colorName)
+}
+
+@function font($fontSize){
+    @return map-get($map: $fonts, $key: $fontSize)
+}
+
+body, html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    .container{
+        clip-path: polygon(2% 0, 80% 0%, 100% 20%, 100% 80%, 34% 77%, 0 100%, 0% 80%, 0% 20%);
+        height: 100%;
+        width: 100%;
+        background-color: color(secondary);
+        position: absolute;
+        z-index: -1;
+    }
+    header{
+        a{
+            text-align: center;
+            display: block;
+            font-size: font(medium);
+            color: color(primary);
+            padding-top: 24px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+    main{
+        section#mainimage{
+            background-color: color(primary);
+            margin: 20px auto;
+
+            p{
+                text-align: center;
+                font-size: font(medium);
+                margin: 0px auto;
+                padding-bottom: 20px;
+                text-transform: uppercase;
+            }
+        }
+        section#maintext{
+            h1, p{
+                color: color(primary);
+            }
+        }
+    }
+}
